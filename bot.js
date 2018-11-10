@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var prefix = "+";
+var prefix = "";
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Desert Bot- Script By : EX Clan`);
@@ -15,7 +15,7 @@ client.user.setStatus("dnd")
 client.on("message", async message => {
         if(!message.channel.guild) return;
  var prefix= "+";
-        if(message.content.startsWith(prefix + 'server')) {
+        if(message.content.startsWith(prefix + 'معلومات')) {
         let guild = message.guild
         let channel = message.channel
         let guildicon = guild.icon_url
@@ -48,7 +48,7 @@ client.on("message", async message => {
     });
 
 client.on('message', function(message) {
-    if (message.content == "+clear") {
+    if (message.content == "مسح") {
         if (message.member.hasPermission("MANAGE_MESSAGES")) {
             message.channel.fetchMessages()
                .then(function(list){
@@ -60,7 +60,7 @@ client.on('message', function(message) {
 });
 	
   client.on('message', message => {
-    if (message.content.startsWith("+link")) {
+    if (message.content.startsWith("رابط")) {
 
   message.channel.createInvite({
         thing: true,
@@ -80,7 +80,7 @@ message.author.send(`**مدة الرابط : يـوم
 
 client.on('message', message => {
 
-    if (message.content === "+mc") {
+    if (message.content === "كتم روم") {
                         if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -91,7 +91,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
                message.reply("تم تقفيل الشات ? ")
            });
              }
-if (message.content === "+umc") {
+if (message.content === "الغاء كتم روم") {
     if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
@@ -117,7 +117,7 @@ const prefix = "+";
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "kick") {
+  if (command == "طرد") {
                if(!message.channel.guild) return;
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You Don't Have KICK_MEMBERS Permission").then(msg => msg.delete(5000));
@@ -152,7 +152,7 @@ const prefix = "+";
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+  if (command == "حظر") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
@@ -179,7 +179,7 @@ client.on('message', async message => {
       message.delete(3500);
     });
  
-    if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.channel.send('').then(msg => {
+    if(!message.guild.member(client.user).hasPermission("كتم")) return message.channel.send('').then(msg => {
       msg.delete(3500);
       message.delete(3500);
     });
@@ -266,7 +266,7 @@ client.on('message', async message => {
 let command = message.content.split(" ")[0];
      command = command.slice(prefix.length);
     let args = message.content.split(" ").slice(1);  //kinggamer حقوق الفا كودز و
-if(command === `unmute`) {2
+if(command === `الغاء كتم`) {2
   if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You Donot HavePermission Mute_Members**").then(m => m.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I donot Have Permission Mute_Members**").then(msg => msg.delete(6000))
  
