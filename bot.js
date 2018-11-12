@@ -377,4 +377,31 @@ client.on('message', message =>{
   }  
  });
 
+client.on('message', message => {
+              var prefix = "+" ; // البريفكس
+            if (message.content.startsWith(prefix + "help")) { // الامر
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)   
+.addField('     **─════════════ ⦁{✯الاوامر العامة✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('     **→ سرعة استجابة البوت ←**  ' ,' **+ping** ')
+.addField('     **→الافتار ←** ' ,' ** $avatar**')
+.addField('     **→ تاريخ اليوم←** ' , '**$time**')
+.addField('     **→ معلومات السيرفر ← ** ' ,' **  +server  ** ')
+.addField('     **→ ارسال صورت الديسكورد حقق ←  ** ' ,' **  +avatar ** ')
+.addField('     ** → ارسال لينك السيرفر خاص ←  ** ' ,' **  +link ** ')
+.addField('     **─════════════ ⦁{✯اوامر الادارة✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('     ** → اععطاء العضو باند ←  ** ' ,' **  $ban ** ')
+.addField('     ** → طرد العضو من السيرفر ←  ** ' ,' **  $kick ** ')
+.addField('     ** → اعطاء عضو ميوت ←  ** ' ,' **  +mute ** ')
+.addField('     ** → الغاء ميوت من عضو  ←  ** ' ,' **  +unmute ** ')
+.addField('     ** → اقفال روم ←  ** ' ,' **  +mc ** ')
+.addField('     ** → الغاء اقفال روم ←  ** ' ,' **  +umc ** ')
+.addField('     ** → مسح كل الرسائل في الروم ←  ** ' ,' **  +clear ** ')
+
+
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
+
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
