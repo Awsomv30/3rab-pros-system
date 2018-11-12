@@ -8,7 +8,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`use +help|3rb_prosserver`,"http://twitch.tv/3rb_pros")
+client.user.setGame(`|3rb_pros_server`,"http://twitch.tv/3rb_pros")
 client.user.setStatus("dnd")
 });
 
