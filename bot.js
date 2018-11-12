@@ -388,6 +388,7 @@ client.on('message', message => {
 .addField('     **→ معلومات السيرفر ← ** ' ,' **  +server  ** ')
 .addField('     **→ ارسال صورت الديسكورد حقق ←  ** ' ,' **  +avatar ** ')
 .addField('     ** → ارسال لينك السيرفر خاص ←  ** ' ,' **  +link ** ')
+.addField('     ** → حالة الاعضاء ←  ** ' ,' **  +members ** ')
 .addField('     **─════════════ ⦁{✯اوامر الادارة✯}⦁ ════════════─** ' ,' **   ** ')
 .addField('     ** → اععطاء العضو باند ←  ** ' ,' **  $ban ** ')
 .addField('     ** → طرد العضو من السيرفر ←  ** ' ,' **  $kick ** ')
@@ -482,5 +483,19 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
+
+client.on('message', message => {
+    if(message.content == '+members') { // البريفكس و الامر
+    const embed = new Discord.RichEmbed()
+    .setDescription(`**Members infoً”‹
+:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+:heart:dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+:yellow_heart: idle:      ${message.guild.members.filter(m=>m.presence.status == 'idle').size}   
+:black_heart: offline:   ${message.guild.members.filter(m=>m.presence.status == 'offline').size} 
+:blue_heart:   all:  ${message.guild.memberCount}**`)         
+         message.channel.send({embed});
+
+    }
+  });
 
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
