@@ -482,5 +482,27 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-  
+
+  client.on('message' , message => {
+if(message.content === '^help') {
+  var EsTeKnAN = new Discord.RichEmbed()
+  .setColor('RANDOM')
+message.author.send(`
+***__وصف عن البوت__***
+**
+─════════════ {✯اوامر البوت✯} ════════════─
+❧ ^bc ➺ برودكاست ب امبيد وبدون
+❧ ^Link ➺ رابط انفايت للسيرفر
+❧ ^clear ➺ مسح الشات
+❧ ^server ➺ لعرض معلومات السيرفر
+❧ ^marry ➺ لعبة الزواج
+❧ ^kf ➺ لعبة كف
+❧ ^mc ➺ قفل الشات
+❧ ^new ➺ لانشاء تذكرة
+─════════════ {✯ By Dream ✯} ════════════─
+**
+`);
+}
+})
+
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
