@@ -77,7 +77,6 @@ message.author.send(`**مدة الرابط : يـوم
     }
 });
 
-
 client.on('message', message => {
 
     if (message.content === "+mc") {
@@ -261,6 +260,7 @@ client.on('message', async message => {
     },duration * 60000); //kinggamer حقوق الفا كودز و
   }
 });
+
 client.on('message', async message => {
     let mention = message.mentions.members.first();
 let command = message.content.split(" ")[0];
@@ -288,6 +288,7 @@ if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return mess
   }
  
 });
+
 client.on("message", (message) => {
     /// DREAM
    if (message.content.startsWith("+new")) {     /// DREAM
