@@ -343,6 +343,7 @@ client.on("message", (message) => {
    }
  
 });
+
  client.on('message' , message => {
   var prefix = "+";
   if(message.author.bot) return;
@@ -372,6 +373,7 @@ client.on("message", (message) => {
     }
     
     });
+
 client.on('message', message => {
               var prefix = "+" ; // البريفكس
             if (message.content.startsWith(prefix + "help")) { // الامر
