@@ -8,7 +8,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`3rb_pros|server`,"http://twitch.tv/3rb_pros")
+client.user.setGame(`use +help|3rb_prosserver`,"http://twitch.tv/3rb_pros")
 client.user.setStatus("dnd")
 });
 
@@ -342,6 +342,112 @@ client.on("message", (message) => {
            });
    }
  
+});
+ client.on('message' , message => {
+  var prefix = "+";
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('Pong...').then((msg) => {
+      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);
+ })
+  }  
+ });
+ 
+ client.on('message', message => {
+    if (!message.channel.guild) return;
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("***  ليس معك صلاحيات  ***")
+    var prefix = "+"; // البريفكس
+       if (message.content ===   prefix + "role") { // اعطا جميع الاعضاء رتبة
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما امرت  *** ")
+    message.guild.members.forEach(m => {
+    m.addRole(message.guild.roles.find('name', 'pros'))
+    })
+    }
+    
+       if (message.content ===   prefix + "remove role") {
+    message.channel.send("<@" + message.author.id + ">  ***  جاري اعطاء الرتبة للاعضاء كما امرت  *** ")
+    message.guild.members.forEach(m => {
+    m.removeRole(message.guild.roles.find('name', 'اسم الرتبة'))
+    })
+    }
+    
+    });
+client.on('message', message => {
+              var prefix = "+" ; // البريفكس
+            if (message.content.startsWith(prefix + "help")) { // الامر
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)   
+.addField('     **─════════════ ⦁{✯الاوامر العامة✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('     **→ سرعة استجابة البوت ←**  ' ,' **+ping** ')
+.addField('     **→الافتار ←** ' ,' ** !avatar**')
+.addField('     **→ تاريخ و ساعةاليوم←** ' , '**+time**')
+.addField('     **→ معلومات السيرفر ← ** ' ,' **  +server-info  ** '
+.addField('     ** → القوانين ←  ** ' ,' **  +rules ** ')
+.addField('     **─════════════ ⦁{✯اوامر الادارة✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('     ** → اععطاء العضو باند ←  ** ' ,' **  +ban ** ')
+.addField('     ** → طرد العضو من السيرفر ←  ** ' ,' **  +kick ** ')
+.addField('     ** → مسح الشات ←  ** ' ,' **  +clear ** ')
+.addField('     ** → لاعطاء عضو ميوت ←  ** ' ,' **  +Mute ** ')
+.addField('     ** → لازالة ميوت من عضو ←  ** ' ,' **  +unmute ** ')
+ .addField('     ** → لاقفال روم ←  ** ' ,' **  +mc ** ')
+.addField('     ** → لفتح الروم ←  ** ' ,' **  +umc ** ')
+	  
+ 
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
+    }
+});
+
+const moment = require('moment');
+client.on('message', message => {
+             var prefix = "+" // البريفكس
+if (message.content.startsWith(prefix + "time")) { // الامر
+let user = message.mentions.users.first();
+var args = message.content.split(" ").slice(1);
+var men = message.mentions.users.first();
+var heg;
+if(men) {
+heg = men
+} else {
+heg = message.author
+}
+var mentionned = message.mentions.members.first();
+var h;
+if(mentionned) {
+h = mentionned
+} else {
+h = message.member
+}
+moment.locale('ar-TN'); //TN
+var id = new  Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(`${heg.username}#${heg.discriminator} `,heg.avatarURL)
+.setDescription([`**الوقت**${moment().format('HH:mm:ss A')}${moment().format('YYYY/M/D')}**اليوم** :${moment().format('dddd')}**التاريخ**`])
+message.channel.send(id)
+};
+});
+
+client.on('message', message => {
+            if (message.content.startsWith("+rules")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **اولا** ' ,' **الاحترام فوق كل شئ** ')
+.addField('     **ثانيا** ' ,' ** يُمنع السب و القذف داخل السيرفر ** ')
+.addField('     **ثالثا** ' ,' **لا تزعج الاخرين** ')
+.addField('    **رابعا**' ,' ** احترم خصوصية الآخرين** ')
+.addField('    **خامسا**' ,' **يمنع دخول السيرفر بالاسماء والصور الغير لائقة** ')
+.addField('    **سادسا**' ,' **عدم أثارة المشاكل** ')
+.addField('    **سابعا**' ,' **لا تنشر روابط!** ')
+.addField('    **ثامنا**' ,' **لا تسوي سبام ايموجي** ')
+.addField('    **تاسعا**' ,' **مراعاة نظام كل روم و سياسته** ')
+.addField('     **─════════════ ⦁{✯في حال مخالفتك للنقاط أعلاه تعرض نفسك للآتي✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('    **اولا**' ,' ** تحذير للمرة الاولى ** ')
+.addField('    **ثانيا**' ,' **  تحذير للمرة الثانية ميوت لمدة ساعة** ')
+.addField('    **ثالثا**' ,' **  بكل اسف تبلع بان بطعم الشوكولاتة** ')
+     
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
+    }
 });
 
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
