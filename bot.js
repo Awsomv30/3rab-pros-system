@@ -383,9 +383,8 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)   
 .addField('     **─════════════ ⦁{✯الاوامر العامة✯}⦁ ════════════─** ' ,' **   ** ')
-.addField('     **→ سرعة استجابة البوت ←**  ' ,' **+ping** ')
-.addField('     **→الافتار ←** ' ,' ** $avatar**')
-.addField('     **→ تاريخ اليوم←** ' , '**$time**')
+.addField('     **→ بينج البوت البوت ←**  ' ,' **+ping** ')
+.addField('     **→ تاريخ و وقت اليوم اليوم←** ' , '**+time**')
 .addField('     **→ معلومات السيرفر ← ** ' ,' **  +server  ** ')
 .addField('     **→ ارسال صورت الديسكورد حقق ←  ** ' ,' **  +avatar ** ')
 .addField('     ** → ارسال لينك السيرفر خاص ←  ** ' ,' **  +link ** ')
@@ -402,6 +401,35 @@ client.on('message', message => {
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
+});
+
+const moment = require('moment');
+client.on('message', message => {
+             var prefix = "+" // البريفكس
+if (message.content.startsWith(prefix + "time")) { // الامر
+let user = message.mentions.users.first();
+var args = message.content.split(" ").slice(1);
+var men = message.mentions.users.first();
+var heg;
+if(men) {
+heg = men
+} else {
+heg = message.author
+}
+var mentionned = message.mentions.members.first();
+var h;
+if(mentionned) {
+h = mentionned
+} else {
+h = message.member
+}
+moment.locale('ar-TN'); //TN
+var id = new  Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(`${heg.username}#${heg.discriminator} `,heg.avatarURL)
+.setDescription([`**الوقت**${moment().format('HH:mm:ss A')}${moment().format('YYYY/M/D')}**اليوم** :${moment().format('dddd')}**التاريخ**`])
+message.channel.send(id)
+};
 });
 
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
