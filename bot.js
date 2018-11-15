@@ -501,4 +501,11 @@ client.on('message', message => {
     }
   });
 
+```client.on("ready", () => { // كود رينبو
+  function lol() {
+    client.guilds.get('458476601324339212').roles.find("name", "President").setColor("RANDOM");
+  };
+  setInterval(lol, 1000);
+});
+
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
