@@ -503,7 +503,7 @@ client.on('message', message => {
 
  client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == 'لون'){
+   if(message.content.split('+color')[0] == 'لون'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**لا يوجد لون بهذا الأسم ** ❌ `)
